@@ -1,0 +1,61 @@
+<div class="calendar-wrapper">
+  <form [formGroup]="form" *ngIf="form" class="form-indent">
+    <mat-form-field appearance="outline">
+      <mat-label>Choose a date</mat-label>
+
+      <input
+        matInput
+        type="text"
+        formControlName="date"
+        placeholder="dd/mm/yyyy"
+        (change)="onDateInputChange($event)"
+        class="date-input"
+        (click)="onInputClick()"
+      />
+      <div matSuffix (click)="toggleCalendar($event)">
+        <mat-icon svgIcon="calendar" class="calendar-icon"></mat-icon>
+      </div>
+    </mat-form-field>
+  </form>
+
+  <div class="calendar" *ngIf="showCalendar">
+    <div class="controls">
+      <select id="month" (change)="onMonthChange($event)" class="month-input">
+        <option
+          *ngFor="let month of months; index as i"
+          [value]="i"
+          [selected]="i === currentMonth"
+        >
+          {{ month }}
+        </option>
+      </select>
+
+      <input
+        id="year"
+        type="number"
+        [value]="currentYear"
+        (change)="onYearChange($event)"
+        class="year-input"
+      />
+    </div>
+
+    <div class="weekdays">
+      <div *ngFor="let day of weekDays" class="day">{{ day }}</div>
+    </div>
+
+    <div class="days">
+      <div
+        *ngFor="let day of daysInMonth; let i = index"
+        [ngClass]="{
+          numbers: !day?.isSunday && !day?.isHoliday && i !== selectedIndex,
+          sunday: day?.isSunday,
+          holiday: day?.isHoliday,
+          selected: i === selectedIndex
+        }"
+        (click)="selectDate(day)"
+      >
+        {{ day?.date.getDate() }}
+      </div>
+    </div>
+  </div>
+</div>
