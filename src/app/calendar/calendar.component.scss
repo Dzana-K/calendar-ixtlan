@@ -1,6 +1,7 @@
 .calendar-wrapper {
   position: relative;
 }
+
 .calendar {
   position: absolute;
   top: 45px;
@@ -37,18 +38,22 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 }
+
 .numbers:hover {
   background-color: #cdcdcd;
   border-radius: 50px;
 }
+
 .sunday:hover {
   background-color: #cdcdcd;
   border-radius: 50px;
 }
+
 .holiday:hover {
   background-color: #cdcdcd;
   border-radius: 50px;
 }
+
 .day {
   font-size: 14px;
   font-weight: 500;
@@ -61,6 +66,7 @@
   margin-right: 6px;
   margin-left: 6px;
 }
+
 .month-input {
   font-size: 14px;
   font-weight: 500;
@@ -102,6 +108,7 @@
   margin-right: 6px;
   margin-left: 6px;
 }
+
 .numbers {
   font-size: 13px;
   font-weight: 400;
@@ -116,6 +123,7 @@
   margin-right: 6px;
   margin-left: 6px;
 }
+
 .selected {
   border: 1px solid blue;
   border-radius: 50px;
@@ -131,6 +139,7 @@
   margin-right: 6px;
   margin-left: 6px;
 }
+
 .date-input {
   flex: 1;
   font-size: 1rem;
@@ -139,11 +148,13 @@
   padding-left: 8px;
   color: #949cad;
 }
+
 .calendar-icon {
   color: #272a31;
   padding-right: 13px;
   cursor: pointer;
 }
+
 .year-input {
   border: 0px;
   outline: none;
@@ -155,6 +166,7 @@
   margin-bottom: 15px;
   margin-top: 10px;
 }
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   opacity: 1;
