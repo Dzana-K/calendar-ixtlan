@@ -59,8 +59,8 @@ export class CalendarComponent {
     return this.http.get('assets/holidays.txt', { responseType: 'text' }).pipe(
       map((data) => {
         this.holidays = data.split('\n').map((line) => {
-          const [date, recurring] = line.split(' ');
-          return { date: new Date(date), recurring: recurring === 'true\r' };
+          const [date, recurring] = line.trim().split(' ');
+          return { date: new Date(date), recurring: recurring === 'true' };
         });
       })
     );
